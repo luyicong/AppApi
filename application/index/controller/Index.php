@@ -7,4 +7,8 @@ class Index
     {
         return 'hello word!';
     }
+    public function abc()
+    {
+        return 'abc';
+    }
 }
