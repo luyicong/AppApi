@@ -9,7 +9,7 @@
 namespace app\api\controller\v1;
 
 
-use think\Validate;
+use app\api\validate\IDMustBePostiveInt;
 
 class Banner
 {
@@ -21,23 +21,11 @@ class Banner
      */
     public function getBanner($id) {
 
-        $data = [
-            'name'  => 'thinkphp1111111111111111111',
-            'age'   => 121,
-        ];
+        (new IDMustBePostiveInt())->goCheck();
 
-        $rule = [
-            'name|姓名'  => 'require|max:10',
-            'age|年龄'   => 'number|between:1,120'
-        ];
-
-        $validate = new Validate($rule);
-
-        $result = $validate->check($data);
-
-        if(!$result){
-            echo $validate->getError();
-        }
-//
+//        if(!$result){
+//            echo $validate->getError();
+//        }
+            echo $id;
     }
 }
